@@ -1,0 +1,124 @@
+*, *::before, *::after{
+    box-sizing: border-box;
+
+}
+
+
+body{
+    margin: 0;
+    height: 100vh;
+    max-width: 100vw;
+    overflow-x: hidden;
+    font-family:Times, serif;
+    letter-spacing: 2px;
+    background: black;
+}
+
+
+
+
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+}
+
+
+
+.carousel{
+    position: relative;
+
+}
+.slide{
+    position:absolute;
+    opacity: 0;
+    inset: 0;
+    height: 100vh;
+    transition: opacity .2s ease-in-out;
+    transition-delay: .1s;
+}
+
+.slide>img{
+    display: block;
+    object-fit: contain;
+    object-position: center;
+    height: 100%;
+    width: 100%;
+}
+
+
+
+.slide[data-active]{
+    opacity: 1;
+    inset: initial;
+}
+
+.carouselArrow{
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    transform: translateY(-50%);
+    outline: none;
+    border: none;
+    font-size:200px;
+    color: white;
+    opacity: .5;
+    padding: 15px;
+    background: transparent;
+    transition: all .1s;
+    
+
+}
+.carouselArrow:hover{
+    cursor: pointer;
+    opacity: .8;
+
+}
+
+
+.carouselArrow.next{
+    right: 0;
+}
+
+.carouselArrow.prev{
+    left: 0;
+}
+
+.desc{
+    position: absolute;
+    max-width: 80%;
+    color: rgba(255,255,255,.9);
+    z-index: 5;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+    font-size: 50px;
+    text-align: center;
+}
+
+.slidersView{
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.slidersView >.slItem{
+    position: relative;
+    z-index: 6;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    background: #e4002b;
+    transition: border ease-in .1s;
+    transition-delay: .2s;
+    cursor: pointer;
+    
+}
+.slItem[data-active-slide-view]{
+    width: 1.5em;
+    height: 1.5em;
+    border: 1px solid white;
+}
